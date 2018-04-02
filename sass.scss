@@ -1,0 +1,24 @@
+$color: #f44336;
+
+ @mixin set-color($level) {
+    &.lighten-#{$level} {
+        background: lighten($color, 7.5% * $level);
+    }
+    &.darken-#{$level} {
+        background: darken($color, 7.5% * $level);
+    }
+}
+
+.blue-grey {
+    width: 200px;
+    height: 50px;
+    background: $color;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+    
+    @for $i from 1 through 5 {
+        @include set-color($i);
+    }
+}
